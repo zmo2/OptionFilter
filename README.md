@@ -12,36 +12,15 @@ Filters options by "ranking" to focus on and evaluate for trading
 
 *[Usage](#Usage)
 
-*[License](#License)
-
-*[Contributing](#Contributing)
-
-*[Tests](#Tests)
 
 *[Questions](#Questions)
 
-## Installation:
-To install neccessary dependencies, run the following command:
-
-    npm i
 
 ## Usage
 
 This uses the Etrade Platform for API information.
 
-## License
 
-This project is licensed under the mit license.
-
-## Contributing
-
-
-
-## Tests
-
-To run tests, run the following command:
-
-    npm t
 
 ## Questions
 
