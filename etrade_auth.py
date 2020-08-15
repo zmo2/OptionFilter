@@ -103,21 +103,15 @@ def create_authorization_header(base_url, access_token, access_secret, params={}
 
     return authorization
 
+def login():
+    request_token_url = 'https://api.etrade.com/oauth/request_token'
+    token, token_secret = request_etrade_token(request_token_url)
 
-if __name__ == "__main__":
-    url = 'https://api.etrade.com/oauth/request_token'
-
-    token, token_secret = request_etrade_token(url)
-
-    auth_url = 'https://us.etrade.com/e/t/etws/authorize?key={}&token={}'.format(
-        CONS_KEY, token)
+    auth_url = 'https://us.etrade.com/e/t/etws/authorize?key={}&token={}'.format(CONS_KEY, token)
     webbrowser.open_new(auth_url)
 
     verification_code = input(
         "Please accept agreement and enter text code after logging in\n")
     token_url = 'https://api.etrade.com/oauth/access_token'
 
-    access_token, access_secret = get_access_token(
-        token_url, token, token_secret, verification_code)
-    symbol = 'AAPL'
-    get_option_chain_data(symbol, access_token, access_secret)
+    return get_access_token(token_url, token, token_secret, verification_code)
