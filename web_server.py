@@ -69,7 +69,9 @@ def get_option_chain_data(symbol, sandbox=True, json=True):
     full_url = url + '?' + '&'.join(param_formatter)
     r = requests.get(full_url, headers=authorization, timeout=TIMEOUT)
 
-    return r.text
+    response = app.response_class(response=r.text, status=200, mimetype='application/json')
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 #Get Option Expire Dates
 
@@ -88,3 +90,6 @@ def get_option_chain_data(symbol, sandbox=True, json=True):
 #Change Previewed Order
 
 #Place Changed Order
+
+if __name__ == "__main__":
+	app.run()
