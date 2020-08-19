@@ -8,11 +8,9 @@ $(document).ready(function () {
         $.ajax({
             url: queryUrl,
             method: "GET",
-            dataType: "jsonp",
-            data: {},
         }).then(function (res) {
-            $(".results").append(res)
-            console.log(res)
+            $(".results").text(res["OptionChainResponse"]["OptionPair"][0]["Call"]["displaySymbol"])
+            console.log(res["OptionChainResponse"]["OptionPair"][0]["Call"])
         })
     })
 
